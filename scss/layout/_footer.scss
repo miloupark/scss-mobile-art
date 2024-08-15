@@ -1,0 +1,55 @@
+@use "../abstracts/" as *;
+
+$fontWeights: 200, 300, 500, 700;
+
+.footer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding-top: rem(23);
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__text {
+    @include text($gray22, rem(25.725), 200, rem(34.3), rem(0.257));
+    margin-top: rem(4);
+    > span {
+      display: inline-block;
+      @for $index from 1 through 4 {
+        &:nth-of-type(#{$index}) {
+          font-weight: nth($fontWeights, $index);
+        }
+      }
+    }
+  }
+  &__buttons {
+    display: grid;
+    justify-content: center;
+    gap: rem(16);
+    padding: rem(28.96) 0 rem(28.96);
+  }
+  &__nav {
+    @include text($graysf8, rem(16), 400, rem(32.5), null);
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    background: $gray22;
+    padding: 2.541rem 0 2.795rem 1.7rem;
+    .list-sns {
+      grid-column: 1/2;
+    }
+    .list-about {
+      grid-column: 2/3;
+    }
+  }
+  &__copyright {
+    @include text($grayf0, rem(13), 500, rem(20), null);
+    @include dividerTop;
+    width: 100%;
+    background: $gray22;
+    padding: 2.993rem 0 2.795rem 1.87rem;
+  }
+}

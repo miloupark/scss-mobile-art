@@ -1,0 +1,47 @@
+@use "../abstracts/" as *;
+
+// 공통부분 extend
+%iconButton {
+  display: inline-block;
+  width: rem(24);
+  height: rem(24);
+  .header & {
+    // 부모 header 클래스 안에 있을 경우 28*37
+    width: rem(28);
+    height: rem(37);
+  }
+}
+%buttonLinear {
+  @include text($grayfc, rem(20), 700, rem(28), null);
+  display: inline-block;
+  background: $gradient-accent;
+  .footer & {
+    padding: 15px 80px 13px 80px;
+  }
+}
+
+%buttonBorder {
+  @include text($gray55, rem(20), 700, rem(28), null);
+  display: inline-block;
+  border: 1px solid transparent;
+  border-image: $gradient-accent;
+  border-image-slice: 1;
+  .footer & {
+    padding: 15px 80px 13px 80px;
+  }
+}
+
+.btn-menu {
+  @include background("ico_menu.svg", center);
+  @extend %iconButton;
+}
+
+.btn-linear {
+  @extend %buttonLinear;
+  border-radius: rem(8);
+}
+
+.btn-border {
+  @extend %buttonBorder;
+  border-radius: rem(8);
+}

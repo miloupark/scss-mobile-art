@@ -1,0 +1,22 @@
+@use "../abstracts/" as *;
+
+%imgLogo {
+  display: inline-block;
+  width: rem(140);
+  height: rem(37);
+  .header & {
+    // 부모 header 클래스 안에 있을 경우
+    background-size: contain;
+  }
+  .footer & {
+    // 부모 foote 클래스 안에 있을 경우
+    width: rem(177.324);
+    height: rem(46.864);
+    background-size: contain;
+  }
+}
+
+.logo {
+  @include background("img_logo.svg", center);
+  @extend %imgLogo;
+}
